@@ -1,0 +1,65 @@
+!######################################!
+!     Worldborder Multiple Clocks      !
+!######################################!
+
+#
+
+# SETUP / RESET
+{"type":"impulse", "auto":false}
+/scoreboard objectives remove worldbordertime
+	{"type":"chain", "auto":true}
+	/scoreboard objectives add worldbordertime dummy Time
+	/scoreboard objectives remove clocks
+	/scoreboard objectives add clocks dummy Clocks
+	/scoreboard objectives setdisplay sidebar clocks 
+	/worldborder set 50000000
+	/worldborder set 60000000 10000000
+
+#
+
+# WORLDBORDER CLOCK
+{"type":"repeating", "auto":true}
+/worldborder get
+	{"type":"chain"}
+	/stats block ~-1 ~ ~ set QueryResult Seconds worldbordertime 
+	/scoreboard players remove Seconds worldbordertime 1000000
+
+#	
+
+# TIMER ONE
+{"type":"impulse", "auto":false}
+/scoreboard players operation TimerOneStart worldbordertime = Seconds worldbordertime
+
+{"type":"repeating", "auto":true}
+	/scoreboard players operation TimerOne clocks = Seconds worldbordertime
+	{"type":"chain"}
+	/scoreboard players operation TimerOne clocks -= TimerOneStart worldbordertime
+
+#
+
+# TIMER TWO
+{"type":"impulse", "auto":false}
+/scoreboard players operation TimerTwoStart worldbordertime = Seconds worldbordertime
+
+{"type":"repeating", "auto":true}
+	/scoreboard players operation TimerTwo clocks = Seconds worldbordertime
+	{"type":"chain"}
+	/scoreboard players operation TimerTwo clocks -= TimerTwoStart worldbordertime
+	
+#
+
+# COUNTDOWN
+{"type":"impulse", "auto":false}
+/scoreboard players set CountdownEnd worldbordertime 30
+	{"type":"chain"}
+	/scoreboard players operation CountdownEnd worldbordertime += Seconds worldbordertime
+	
+{"type":"repeating", "auto":true}
+	/scoreboard players operation Countdown clocks = CountdownEnd worldbordertime
+	{"type":"chain"}
+	/scoreboard players operation Countdown clocks -= Seconds worldbordertime
+	
+
+
+
+
