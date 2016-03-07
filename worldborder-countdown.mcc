@@ -1,0 +1,33 @@
+!######################################!
+!         Worldborder Countdown        !
+!######################################!
+
+# Setup scoreboard
+{"type":"impulse", "auto":false}
+/scoreboard objectives remove countdown
+	{"type":"chain", "auto":true}
+	/scoreboard objectives add countdown dummy Countdown
+	/scoreboard objectives setdisplay sidebar countdown 
+
+#
+# Countdown clock (a line going in x direction)
+{"type":"repeater", "auto":true}
+/worldborder get
+	{"type":"chain"}
+	/stats block ~-1 ~ ~ set QueryResult Seconds countdown 
+	/scoreboard players remove Seconds countdown 1000000 
+
+#	
+# Start 60 seconds countdown
+{"type":"impulse", "auto":false}
+/worldborder set 1000060
+	{"type":"chain", "auto":true}
+	/worldborder set 1000000 60
+
+#	
+# Start 120 seconds countdown
+{"type":"impulse", "auto":false}
+/worldborder set 1000120
+	{"type":"chain", "auto":true}
+	/worldborder set 1000000 120
+
