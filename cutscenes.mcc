@@ -29,7 +29,7 @@
 //say DO NOTHING
 {"type":"chain", "auto":true}
 -- !cutscene <objective> <tag> <seconds> <x_start> <y_start> <z_start> <y_rot_start> <x_rot_start> <x_stop> <y_stop> <z_stop> <y_rot_stop> <x_rot_stop> <gamemode> 
-!cutscene cutscenecount sceneThree 3 -80 10 -80 0 0 -80 4 -80 0 0
+!cutscene cutscenecount sceneThree 60 -39.367 6.37337 -48.489 1.0 29.4 -33.018 17.23763 -40.478 91.3 71.7 creative
 
 #	
 # Start Scene One
@@ -40,4 +40,9 @@
 # Start Scene Two
 {"type":"impulse", "auto":false}
 /scoreboard players tag @p add sceneTwo
+
+#	
+# Start Scene Three
+{"type":"impulse", "auto":false}
+/scoreboard players tag @p add sceneThree
 

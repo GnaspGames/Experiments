@@ -61,7 +61,7 @@ module.exports = function(args, addCommand, addSetup)
 	/execute @a[tag=<tag>,score_<objective>_min=0,score_<objective>=0] ~ ~ ~
 		tp @p <x_start> <y_start> <z_start> <y_rot_start> <x_rot_start>
 	/execute @a[tag=<tag>,score_<objective>_min=0,score_<objective>=0] ~ ~ ~
-		summon AreaEffectCloud {Duration:<ticks>,Tags:["cam_<tag>"]}
+		summon AreaEffectCloud {Duration:<ticks+2>,Tags:["cam_<tag>"]}
 	/execute @a[tag=<tag>,score_<objective>_min=0,score_<objective>=0] ~ ~ ~
 		tp @e[tag=cam_<tag>,c=1] @p
 	
@@ -105,7 +105,7 @@ module.exports = function(args, addCommand, addSetup)
 	executeStr = util.format("@a[tag=%s,score_%s_min=0,score_%s=0]", tag, objective, objective);
 		addCommand("gamemode spectator @p", {executeAs:executeStr});
 		addCommand(util.format("tp @p %s %s %s %s %s", x_start, y_start, z_start, y_rot_start, x_rot_start), {executeAs:executeStr});
-		addCommand(util.format("summon AreaEffectCloud ~ ~ ~ {Duration:%s,Tags:[\"cam_%s\"]}", ticks, tag), {executeAs:executeStr});
+		addCommand(util.format("summon AreaEffectCloud ~ ~ ~ {Duration:%s,Tags:[\"cam_%s\"]}", ticks + 2, tag), {executeAs:executeStr});
 		addCommand(util.format("tp @e[tag=cam_%s,c=1] @p", tag), {executeAs:executeStr});
 	
 	// Movement:
