@@ -1,0 +1,43 @@
+--######################################--
+--         Cutscenes Experiment         --
+--######################################--
+
+#
+# Setup scoreboard
+{"type":"impulse", "auto":false}
+/scoreboard objectives remove cutscenecount
+	{"type":"chain", "auto":true}
+	/scoreboard objectives add cutscenecount dummy 
+
+#
+# Scene One
+{"type":"repeating", "auto":true}
+//say DO NOTHING
+{"type":"chain", "auto":true}
+-- !cutscene <objective> <tag> <seconds> <x_start> <y_start> <z_start> <y_rot_start> <x_rot_start> <x_stop> <y_stop> <z_stop> <y_rot_stop> <x_rot_stop> <gamemode> 
+!cutscene cutscenecount sceneOne 20 0 0 0 0 0 0 50 0 0 90 creative
+
+# Scenes Two
+{"type":"repeating", "auto":true}
+//say DO NOTHING
+{"type":"chain", "auto":true}
+-- !cutscene <objective> <tag> <seconds> <x_start> <y_start> <z_start> <y_rot_start> <x_rot_start> <x_stop> <y_stop> <z_stop> <y_rot_stop> <x_rot_stop> <gamemode> 
+!cutscene cutscenecount sceneTwo 20 0 10 0 0 0 100 10 0 0 0 creative -80 10 -80 0 0
+
+# Scene Three
+{"type":"repeating", "auto":true}
+//say DO NOTHING
+{"type":"chain", "auto":true}
+-- !cutscene <objective> <tag> <seconds> <x_start> <y_start> <z_start> <y_rot_start> <x_rot_start> <x_stop> <y_stop> <z_stop> <y_rot_stop> <x_rot_stop> <gamemode> 
+!cutscene cutscenecount sceneThree 3 -80 10 -80 0 0 -80 4 -80 0 0
+
+#	
+# Start Scene One
+{"type":"impulse", "auto":false}
+/scoreboard players tag @p add sceneOne
+
+#	
+# Start Scene Two
+{"type":"impulse", "auto":false}
+/scoreboard players tag @p add sceneTwo
+
