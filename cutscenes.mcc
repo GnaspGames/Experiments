@@ -23,17 +23,17 @@
 !cutscene cutscenecount sceneOne 20 \
 	0 0 0 0 0 \
 	0 50 0 0 90 \
-	creative
+	creative \
+	-80 10 -80 0 0
 
 # Scenes Two
 {"type":"repeating", "auto":true}
 //say DO NOTHING
 {"type":"chain", "auto":true}
-!cutscene cutscenecount sceneTwo 20 \
-	0 10 0 0 0 \
-	100 10 0 0 0 \
-	creative \
-	-80 10 -80 0 0
+!cutscene cutscenecount sceneTwo 3 \
+	-39.971 11.49314 -23.979 0.0 90.0 \
+	-39.972 3.00 -23.979 -0.6 1.2 \
+	creative
 
 # Scene Three
 {"type":"repeating", "auto":true}
