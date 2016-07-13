@@ -1,0 +1,33 @@
+# Create two scoreboard objectives
+
+/scoreboard objectives add repeats dummy REPEATS
+/scoreboard objectives add impulses dummy IMPULSES
+
+# Then create these command blocks:
+# Make sure they're powered
+
+repeat:
+  /execute @e[score_repeats=0,score_repeats_min=0] ~ ~ ~ 
+  	blockdata ~ ~-1 ~ {auto:false}
+  
+chain:
+  /execute @e[score_repeats=1,score_repeats_min=1] ~ ~ ~ 
+    blockdata ~ ~-1 ~ {auto:true}
+
+  /execute @e[score_impulses_min=1] ~ ~ ~ 
+  	blockdata ~ ~-1 ~ {auto:true}
+
+  /execute @e[score_impulses_min=1] ~ ~ ~ 
+  	blockdata ~ ~-1 ~ {auto:false}
+
+  /scoreboard players set @e[score_impulses_min=1] impulses 0
+  
+# Then for all you're other REPEAT or IMPULSE needs put ArmorStands with custom names above the REPEAT or IMPULSE command blocks that start your chains.
+# To turn a REPEAT chain on:
+/scoreboard players set @e[name=MY_REPEAT_NAME] repeats 1
+
+# To turn a REPEAT chain off:
+/scoreboard players set @e[name=MY_REPEAT_NAME] repeats 0
+
+# To run an IMPULSE CHAIN once:
+/scoreboard players set @e[name=MY_IMPULSE_NAME] impulses 1

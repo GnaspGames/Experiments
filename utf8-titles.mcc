@@ -1,0 +1,17 @@
+
+#
+# Title Experiment
+	{"type":"impulse","auto":false}
+	/title @a times 0 40 20
+		{"type":"chain","auto":true}
+		/title @a title {"text":"\u2755","color":"red","bold":"true"}
+		
+-- It doesn't work! :-(
+		
+		
+#
+# Title TEST
+	{"type":"impulse","auto":false}
+	/title @a times 0 40 20
+		{"type":"chain","auto":true}
+		/title @a title {"text":"TEST","color":"red","bold":"true"}

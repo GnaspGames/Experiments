@@ -1,0 +1,48 @@
+
+
+# LEVATION ELEVATOR CONCEPT
+
+	/execute @e[name=lift_up] ~-4 ~ ~-4 
+		effect @a[dx=8,dy=202,dz=8] clear
+		
+	/execute @e[name=lift_down] ~-4 ~ ~-4
+		effect @a[dx=8,dy=202,dz=8] clear
+
+	/execute @e[name=lift_up] ~-1 ~ ~-1 
+			effect @a[dx=2,dy=200,dz=2] minecraft:levitation 1 3 true
+		
+	/execute @e[name=lift_down] ~-1 ~ ~-1 
+			effect @a[dx=2,dy=200,dz=2] minecraft:levitation 1 251 true
+			
+	/execute @e[name=lift_down] ~-3 ~ ~-3 
+			effect @a[dx=6,dy=200,dz=6] minecraft:jump_boost 1 254 true
+		
+		
+/execute @e[name=lift_up] ~-4 ~ ~-4  execute @a[dx=8,dy=202,dz=8] ~ ~ ~ say Up: Clearing Effects
+/execute @e[name=lift_down] ~-4 ~ ~-4  execute @a[dx=8,dy=202,dz=8] ~ ~ ~  say Down: Clearing Effects
+/execute @e[name=lift_up] ~-1 ~ ~-1 execute @a[dx=2,dy=200,dz=2] ~ ~ ~ say Up: Levitation
+/execute @e[name=lift_down] ~-1 ~ ~-1 execute @a[dx=2,dy=200,dz=2] ~ ~ ~ say Down: Levitation
+/execute @e[name=lift_down] ~-3 ~ ~-3 execute @a[dx=6,dy=200,dz=6] ~ ~ ~ say Down: Jump Boost
+		
+				
+/summon ArmorStand ~-0.4 ~0.5 ~ {CustomName:" ▲ up ▲ ",CustomNameVisible:true,Invisible:true,Marker:true,NoGravity:true}
+/summon ArmorStand ~-0.4 ~0.5 ~ {CustomName:" ▼ down ▼ ",CustomNameVisible:true,Invisible:true,Marker:true,NoGravity:true}
+/summon ArmorStand ~-0.4 ~0.5 ~ {CustomName:" - no entry - ",CustomNameVisible:true,Invisible:true,Marker:true,NoGravity:true}
+
+
+
+repeat chain:
+	/scoreboard players tag @a add OnGround {OnGround:1b}
+	/scoreboard players tag @a remove OnGround {OnGround:0b}
+	/effect @a[tag=antigravity] minecraft:jump_boost 1 254 true
+	/effect @a[tag=antigravity] minecraft:levitation 0 255 true	
+	/execute @a[tag=antigravity] ~ ~ ~ effect @a[tag=OnGround,r=0] minecraft:levitation 1 10 true
+	/effect @a[tag=antigravity,rx=-20,rxm=-90] minecraft:levitation 1 3 true
+	/effect @a[tag=antigravity,rxm=-19,rx=19] minecraft:levitation 1 255 true
+	/effect @a[tag=antigravity,rxm=20,rx=90] minecraft:levitation 1 251 true
+	
+# Give yourself antigravity effect
+/scoreboard players tag @p add antigravity
+/scoreboard players tag @p remove antigravity
+
+

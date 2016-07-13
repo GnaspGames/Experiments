@@ -2,6 +2,7 @@
 --         Worldborder Countdown        --
 --######################################--
 
+#
 # Setup scoreboard
 {"type":"impulse", "auto":false}
 /scoreboard objectives remove countdown
@@ -10,8 +11,8 @@
 	/scoreboard objectives setdisplay sidebar countdown 
 
 #
-# Countdown clock (a line going in x direction)
-{"type":"repeater", "auto":true}
+# Countdown clock
+{"type":"repeating", "auto":true}
 /worldborder get
 	{"type":"chain"}
 	/stats block ~-1 ~ ~ set QueryResult Seconds countdown 

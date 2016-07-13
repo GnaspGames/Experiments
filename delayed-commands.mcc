@@ -1,0 +1,17 @@
+
+# REPEATING chain that controls all delays
+{"type":"repeater","auto":true}
+/scoreboard players tag @e[type=AreaEffectCloud,tag=DelayCloud] add expired {Age:-1}
+	{"type":"chain"}
+	/execute @e[type=AreaEffectCloud,tag=expired] ~ ~ ~ blockdata ~ ~ ~ {auto:1b}
+	/execute @e[type=AreaEffectCloud,tag=expired] ~ ~ ~ blockdata ~ ~ ~ {auto:0b}
+
+# Example of running a delayed command
+{"type":"impulse", "auto":false}
+	
+	-- The following command will set up a delay to execute the next impulse command in on the x axis
+	/summon AreaEffectCloud ~1 ~ ~ {Particle:"take",Tags:["DelayCloud"], Age:-60}
+	
+	-- This is the command that will be executed after the delay
+	/say I will execute when the AreaEffectCloud gets to -1
+

@@ -1,0 +1,8 @@
+
+# AEC EFFECTS
+{"type":"repeating","auto":true}
+/execute Gnasp ~ ~ ~ summon AreaEffectCloud ~ ~1 ~ {Radius:1f,Particle:take,Age:0,Duration:6,Effects:[{Id:25,Amplifier:-11,Duration:20,ShowParticles:0b}]}
+{"type":"chain","auto":true}
+/execute Gnasp ~ ~ ~ summon AreaEffectCloud ~ ~ ~ {Radius:1f,Particle:take,Age:0,Duration:6,Effects:[{Id:25,Amplifier:-11,Duration:20,ShowParticles:0b}]}
+/execute Gnasp ~ ~ ~ summon AreaEffectCloud ~ ~-1 ~ {Radius:1.5f,Particle:take,Age:0,Duration:6,Effects:[{Id:25,Amplifier:-11,Duration:20,ShowParticles:0b}]}
+/execute Gnasp ~ ~ ~ summon AreaEffectCloud ~ ~-2 ~ {Radius:1.5f,Particle:take,Age:0,Duration:6,Effects:[{Id:25,Amplifier:-11,Duration:20,ShowParticles:0b}]}
