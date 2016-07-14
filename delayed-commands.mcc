@@ -1,6 +1,6 @@
 
 # REPEATING chain that controls all delays
-{"type":"repeater","auto":true}
+{"type":"repeating","auto":true}
 /scoreboard players tag @e[type=AreaEffectCloud,tag=DelayCloud] add expired {Age:-1}
 	{"type":"chain"}
 	/execute @e[type=AreaEffectCloud,tag=expired] ~ ~ ~ blockdata ~ ~ ~ {auto:1b}
